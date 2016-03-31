@@ -1,14 +1,12 @@
-// Type definitions for node-uuid.js
+// Type definitions for uuid
 // Project: https://github.com/broofa/node-uuid
-// Definitions by: Jeff May <https://github.com/jeffmay>
+// Definitions by: Sergey Khomushin <https://github.com/xr0master>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /**
  * Definitions for use in node environment
- *
- * !! For browser enviroments, use node-uuid-global or node-uuid-cjs
  */
-declare namespace __NodeUUID {
+declare module 'uuid' {
   interface UUIDOptions {
 
     /**
@@ -36,23 +34,17 @@ declare namespace __NodeUUID {
     nsecs?: number;
   }
 
-  interface UUID {
-    v1(options?: UUIDOptions): string;
-    v1(options?: UUIDOptions, buffer?: number[], offset?: number): number[];
-    v1(options?: UUIDOptions, buffer?: Buffer, offset?: number): Buffer;
+  export function v1(options?: UUIDOptions): string;
+  export function v1(options?: UUIDOptions, buffer?: number[], offset?: number): number[];
+  export function v1(options?: UUIDOptions, buffer?: Buffer, offset?: number): Buffer;
 
-    v4(options?: UUIDOptions): string;
-    v4(options?: UUIDOptions, buffer?: number[], offset?: number): number[];
-    v4(options?: UUIDOptions, buffer?: Buffer, offset?: number): Buffer;
+  export function v4(options?: UUIDOptions): string;
+  export function v4(options?: UUIDOptions, buffer?: number[], offset?: number): number[];
+  export function v4(options?: UUIDOptions, buffer?: Buffer, offset?: number): Buffer;
 
-    parse(id: string, buffer?: number[], offset?: number): number[];
-    parse(id: string, buffer?: Buffer, offset?: number): Buffer;
+  export function parse(id: string, buffer?: number[], offset?: number): number[];
+  export function parse(id: string, buffer?: Buffer, offset?: number): Buffer;
 
-    unparse(buffer: number[], offset?: number): string;
-    unparse(buffer: Buffer, offset?: number): string;
-  }
-}
-
-declare module 'uuid' {
-  export let uuid: __NodeUUID.UUID;
+  export function unparse(buffer: number[], offset?: number): string;
+  export function unparse(buffer: Buffer, offset?: number): string;
 }

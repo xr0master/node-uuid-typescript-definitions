@@ -1,1 +1,2 @@
-# node-uuid-typescript-definitions
+## How use
+import * as uuid from 'uuid';
